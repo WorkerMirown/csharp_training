@@ -1,6 +1,6 @@
 namespace addressbook_web_tests
 {
-    public class Tests
+    public class UnitTest_1
     {
         [SetUp]
         public void Setup()
