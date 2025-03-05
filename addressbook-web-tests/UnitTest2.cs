@@ -26,7 +26,7 @@ namespace addressbook_web_tests
         {
             try
             {
-                driver.Quit();
+                driver.Dispose();
             }
             catch (Exception)
             {
