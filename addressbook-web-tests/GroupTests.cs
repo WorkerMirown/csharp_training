@@ -6,7 +6,7 @@ using System.Text;
 namespace addressbook_web_tests
 {
     [TestFixture]
-    public class UnitTest_2 
+    public class GroupTests
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -37,7 +37,7 @@ namespace addressbook_web_tests
 
 
         [Test]
-        public void TestMethod1t()
+        public void CreateNewGroup()
         {
             driver.Navigate().GoToUrl(baseURL);
             driver.FindElement(By.Name("user")).Clear();
