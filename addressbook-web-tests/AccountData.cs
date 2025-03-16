@@ -1,4 +1,4 @@
-﻿namespace addressbook_web_tests.GroupTests.GroupTests
+﻿namespace WebAddressbookTests
 {
     internal class AccountData
     {
