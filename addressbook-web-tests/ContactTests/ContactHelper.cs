@@ -1,134 +1,28 @@
-﻿using System;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using NUnit.Framework;
-using NUnit.Framework.Internal.Commands;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-
 namespace WebAddressbookTests
 {
-    public class BaseForTest
-
+    public class ContactHelper : HelperBase
     {
-        protected IWebDriver driver;
-        private StringBuilder verificationErrors;
-        protected string baseURL;
-        private bool acceptNextAlert = true;
+        private IWebDriver driver;
 
-
-        [SetUp]
-        public void SetupTest()
+        public ContactHelper(IWebDriver driver) : base(driver)
         {
-            driver = new FirefoxDriver();
-            baseURL = "http://localhost/";
-            verificationErrors = new StringBuilder();
+        }
+        public void MarkContactCard(string index)
+        {
+            if (index != null)
+                driver.FindElement(By.Id(index)).Click();
         }
 
-        [TearDown]
-        public void TeardownTest()
-        {
-            try
-            {
-                driver.Dispose();
-            }
-            catch (Exception)
-            {
-                // Ignore errors if unable to close the browser
-            }
-            Assert.AreEqual("", verificationErrors.ToString());
-        }
-
-        //General methods
-        protected void GoToHomePage()
-        {
-            driver.Navigate().GoToUrl(baseURL + "addressbook");
-        }
-        protected void Login(AccountData accountData)
-        {
-            driver.FindElement(By.Name("user")).Click();
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys(accountData.Username);
-            driver.FindElement(By.Name("pass")).Click();
-            driver.FindElement(By.Name("pass")).SendKeys(accountData.Password);
-            driver.FindElement(By.XPath("//input[@value='Login']")).Click();
-        }
-        protected void Logout()
-        {
-            driver.FindElement(By.LinkText("Logout")).Click();
-        }
-       
-        protected void PressSubmitButton()
-        {
-            driver.FindElement(By.Name("Submit")).Click();
-        }
-
-        public bool IsElementPresent(By by)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-        }
-        //For Groups Test
-        protected void GoToGroupsPage()
-        {
-            driver.FindElement(By.LinkText("groups")).Click();
-        }
-        protected void ReturnToGroupPage()
-        {
-            driver.FindElement(By.LinkText("group page")).Click();
-        }
-                
-        protected void SelectGroup(int index)
-        {
-            driver.FindElement(By.XPath("//div[@id='content']/form/span[" + index + "]/input")).Click();
-        }
-        protected void FillGroupForm(GroupData group)
-        {
-            driver.FindElement(By.Name("group_name")).Click();
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
-            driver.FindElement(By.Name("group_header")).Click();
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
-            driver.FindElement(By.Name("group_footer")).Click();
-            driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
-        }
-        protected void PressDeleteButtonForGroup()
-        {
-            driver.FindElement(By.Name("Delete")).Click();
-        }
-
-        //For Delete Contact 
-
-
-        protected void ReturnAfterDelete()
-        {
-            driver.FindElement(By.LinkText("home")).Click();
-        }
-
-        protected void MarkContactCard(string index)
-        {
-            if( index!= null)
-            driver.FindElement(By.Id(index)).Click();
-        }
-
-        protected void InitGroupCreation()
+        public void InitGroupCreation()
         {
             driver.FindElement(By.Name("new")).Click();
         }
         //For Create Contact
-        protected void FillFormContact(ContactData contact)
+        public void FillFormContact(ContactData contact)
         {
             driver.FindElement(By.Name("title")).Click();
             driver.FindElement(By.Name("title")).Clear();
@@ -177,7 +71,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("ayear")).SendKeys("2025");
         }
 
-        protected void FIOAdding(ContactData contact)
+        public void FIOAdding(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -193,15 +87,15 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("nickname")).SendKeys(contact.Nickname);
         }
 
-        protected void SubmitContactCreation()
+        public void SubmitContactCreation()
         {
             driver.FindElement(By.XPath("//div[@id='content']/form/input[20]")).Click();
         }
-        protected void InitContactCreating()
+        public void InitContactCreating()
         {
             driver.FindElement(By.LinkText("add new")).Click();
         }
-        protected string GetFirstIdFromContactTable()
+        public string GetFirstIdFromContactTable()
         {
             try
             {
@@ -221,10 +115,6 @@ namespace WebAddressbookTests
                 Console.WriteLine("Ошибка: Не удалось найти первый ID в таблице Contact.");
                 return null;
             }
-        }
-        protected void PressDeleteButtonForContact()
-        {
-            driver.FindElement(By.XPath("//*[@id=\"content\"]/form[2]/div[2]/input")).Click();
         }
     }
 }

@@ -6,12 +6,13 @@
         [Test]
         public void TheGroupDeleteTest()
         {
-            GoToHomePage();
-            Login(new AccountData("admin", "secret"));
-            GoToGroupsPage();
-            SelectGroup(1);
-            PressDeleteButtonForGroup();
-            ReturnToGroupPage();
+            navigator.GoToHomePage();
+            loginHelper.Login(new AccountData("admin", "secret"));
+            navigator.GoToGroupsPage();
+            groupHelper.SelectGroup(1);
+            groupHelper.PressDeleteButtonForGroup();
+            navigator.ReturnToGroupPage();
+            loginHelper.Logout();
         }
     }
 }

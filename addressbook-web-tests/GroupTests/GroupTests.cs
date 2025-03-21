@@ -6,17 +6,17 @@
         [Test]
         public void CreateNewGroup()
         {
-            GoToHomePage();
-            Login(new AccountData("admin", "secret"));
-            GoToGroupsPage();
-            InitGroupCreation();
+            navigator.GoToHomePage();
+            loginHelper.Login(new AccountData("admin", "secret"));
+            navigator.GoToGroupsPage();
+            contactHelper.InitGroupCreation();
             GroupData group = new GroupData("aaa");
             group.Header = "sss";
             group.Footer = "footer";
-            FillGroupForm(group);
-            PressSubmitButton();
-            ReturnToGroupPage();
-            Logout();
+            groupHelper.FillGroupForm(group);
+            groupHelper.PressSubmitButton();
+            navigator.ReturnToGroupPage();
+            loginHelper.Logout();
         }
     }
 }

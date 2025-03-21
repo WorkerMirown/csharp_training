@@ -8,12 +8,13 @@ namespace WebAddressbookTests
         [Test]
         public void TheContactDeleteTest()
         {
-            GoToHomePage();
-            Login(new AccountData("admin", "secret"));
-            MarkContactCard(GetFirstIdFromContactTable());
-            PressDeleteButtonForContact();
-            ReturnAfterDelete();
+            navigator.GoToHomePage();
+            loginHelper.Login(new AccountData("admin", "secret"));
+            contactHelper.MarkContactCard(contactHelper.GetFirstIdFromContactTable());
+            navigator.PressDeleteButtonForContact();
+            navigator.ReturnAfterDelete();
+            loginHelper.Logout();
         }
-        
+
     }
 }
