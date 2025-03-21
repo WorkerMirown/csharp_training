@@ -17,10 +17,7 @@ namespace WebAddressbookTests
                 driver.FindElement(By.Id(index)).Click();
         }
 
-        public void InitGroupCreation()
-        {
-            driver.FindElement(By.Name("new")).Click();
-        }
+
         //For Create Contact
         public void FillFormContact(ContactData contact)
         {

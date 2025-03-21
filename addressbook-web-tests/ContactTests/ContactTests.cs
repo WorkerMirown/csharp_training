@@ -12,11 +12,11 @@ namespace WebAddressbookTests
         [Test]
         public void TheAddContactTestCase()
         {
-            navigator.GoToHomePage();
-            loginHelper.Login(new AccountData("admin", "secret"));
-            contactHelper.InitContactCreating();
+            app.Navigator.GoToHomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
+            app.Contacts.InitContactCreating();
             ContactData contact = new ContactData("FirstNameTest", "MiddleTestName", "LastTestName", "ChoosenOneTest");
-            contactHelper.FIOAdding(contact);
+            app.Contacts.FIOAdding(contact);
             contact.Nickname = "ChoosenOne";
             contact.Title = "Test";
             contact.Company = "Test";
@@ -27,9 +27,9 @@ namespace WebAddressbookTests
             contact.Fax = "Test";
             contact.Email = "Test";
             contact.HomePage = "Test";
-            contactHelper.FillFormContact(contact);
-            contactHelper.SubmitContactCreation();
-            loginHelper.Logout();
+            app.Contacts.FillFormContact(contact);
+            app.Contacts.SubmitContactCreation();
+            app.Auth.Logout();
         }
     }
 }

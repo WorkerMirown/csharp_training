@@ -17,12 +17,8 @@ namespace WebAddressbookTests
         private StringBuilder verificationErrors;
         protected string baseURL;
         private bool acceptNextAlert = true;
-        
-        protected LoginHelper loginHelper;
-        protected NavigationHelper navigator;
-        protected GroupHelper groupHelper;
-        protected ContactHelper contactHelper;
-        
+
+        protected ApplicationManager app;
         
         [SetUp]
         public void SetupTest()
@@ -31,10 +27,7 @@ namespace WebAddressbookTests
             baseURL = "http://localhost/";
             verificationErrors = new StringBuilder();
 
-            loginHelper = new LoginHelper(driver);
-            navigator = new NavigationHelper(driver, baseURL);
-            groupHelper = new GroupHelper(driver);
-            contactHelper = new ContactHelper(driver);
+            app = new ApplicationManager();
     }
 
     [TearDown]

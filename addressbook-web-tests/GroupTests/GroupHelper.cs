@@ -11,7 +11,10 @@ namespace WebAddressbookTests
         public GroupHelper(IWebDriver driver) : base(driver)
         {
         }
-
+        public void InitGroupCreation()
+        {
+            driver.FindElement(By.Name("new")).Click();
+        }
         public void SelectGroup(int index)
         {
             driver.FindElement(By.XPath("//div[@id='content']/form/span[" + index + "]/input")).Click();
