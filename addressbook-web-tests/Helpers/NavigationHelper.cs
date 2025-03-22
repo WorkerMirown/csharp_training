@@ -6,24 +6,21 @@ namespace WebAddressbookTests
 {
     public class NavigationHelper : HelperBase  
     {
-        private IWebDriver driver;
+        
         private string baseURL;
-        public NavigationHelper(IWebDriver driver, string baseURL) : base(driver)
+        public NavigationHelper(ApplicationManager manager, string baseURL) : base(manager)
         { 
             this.baseURL = baseURL;
         }
         public void GoToHomePage()
         {
-            driver.Navigate().GoToUrl(baseURL + "addressbook");
+            driver.Navigate().GoToUrl(baseURL + "/addressbook");
         }
         public void GoToGroupsPage()
         {
             driver.FindElement(By.LinkText("groups")).Click();
         }
-        public void ReturnToGroupPage()
-        {
-            driver.FindElement(By.LinkText("group page")).Click();
-        }
+        
         public void ReturnAfterDelete()
         {
             driver.FindElement(By.LinkText("home")).Click();

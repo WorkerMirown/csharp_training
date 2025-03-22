@@ -13,35 +13,22 @@ namespace WebAddressbookTests
 {
     public class BaseForTest 
     {
-        protected IWebDriver driver;
-        private StringBuilder verificationErrors;
-        protected string baseURL;
-        private bool acceptNextAlert = true;
 
         protected ApplicationManager app;
         
         [SetUp]
         public void SetupTest()
-        {
-            driver = new FirefoxDriver();
-            baseURL = "http://localhost/";
-            verificationErrors = new StringBuilder();
-
+        { 
             app = new ApplicationManager();
-    }
+            app.Navigator.GoToHomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
 
-    [TearDown]
+        }
+
+        [TearDown]
         public void TeardownTest()
         {
-            try
-            {
-                driver.Dispose();
-            }
-            catch (Exception)
-            {
-                // Ignore errors if unable to close the browser
-            }
-            Assert.AreEqual("", verificationErrors.ToString());
+            app.Stop();
         }
     }
 }

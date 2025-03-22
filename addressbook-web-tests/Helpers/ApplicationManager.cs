@@ -7,29 +7,42 @@ namespace WebAddressbookTests
 {
     public class ApplicationManager
     {       
-        protected IWebDriver driver;
-        private StringBuilder verificationErrors;
-
+        
         protected string baseURL;
-        private bool acceptNextAlert = true;
 
         protected LoginHelper loginHelper;
         protected NavigationHelper navigationHelper;
         protected GroupHelper groupHelper;
         protected ContactHelper contactHelper;
 
+        private FirefoxDriver driver;
+        private bool acceptNextAlert = true;
+        private StringBuilder verificationErrors;
+
         public ApplicationManager()
         {
             driver = new FirefoxDriver();
-            baseURL = "http://localhost/";
+            baseURL = "http://localhost";
             verificationErrors = new StringBuilder();
 
-            loginHelper = new LoginHelper(driver);
-            navigationHelper = new NavigationHelper(driver, baseURL);
-            groupHelper = new GroupHelper(driver); 
-            contactHelper = new ContactHelper(driver);
+            loginHelper = new LoginHelper(this);
+            navigationHelper = new NavigationHelper(this, baseURL);
+            groupHelper = new GroupHelper(this); 
+            contactHelper = new ContactHelper(this);
         }
-
+        public IWebDriver Driver 
+        { get { return driver; } }
+        public void Stop()
+        {
+            try
+            {
+                driver.Dispose();
+            }
+            catch (Exception)
+            {
+                // Ignore errors if unable to close the browser
+            }
+        }
         public LoginHelper Auth 
         { get {  return loginHelper; } }
         public NavigationHelper Navigator

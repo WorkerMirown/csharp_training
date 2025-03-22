@@ -8,7 +8,7 @@ namespace WebAddressbookTests
     {
         private IWebDriver driver;
 
-        public ContactHelper(IWebDriver driver) : base(driver)
+        public ContactHelper(ApplicationManager manager) : base(manager)
         {
         }
         public void MarkContactCard(string index)

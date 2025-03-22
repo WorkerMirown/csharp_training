@@ -3,7 +3,7 @@
   <Class Name="WebAddressbookTests.BaseForTest">
     <Position X="11.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAQAIAAAAABAAAAAABTAAAAAAAAAABCAAAAAACA=</HashCode>
+      <HashCode>AAAEAAQAIAAAAABAAAAAAATAAAAAAAAAABCAAAAAACA=</HashCode>
       <FileName>UnionForTest\BaseForTests.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -16,7 +16,7 @@
   <Class Name="WebAddressbookTests.TestsForGroups">
     <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>GroupTests\GroupTests.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -37,7 +37,7 @@
   <Class Name="WebAddressbookTests.GroupHelper" Collapsed="true">
     <Position X="15.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAAAAACAAAABAAAAAAEAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAABAAAAAAEAAABAAAA=</HashCode>
       <FileName>GroupTests\GroupHelper.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -72,7 +72,7 @@
   <Class Name="WebAddressbookTests.HelperBase" Collapsed="true">
     <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UnionForTest\HelperBase.cs</FileName>
     </TypeIdentifier>
   </Class>
